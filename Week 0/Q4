@@ -1,0 +1,27 @@
+function trackFunction() {
+    let invocationCount = 0;
+    let instanceCount = 0;
+
+    function trackedFunction() {
+        invocationCount++;
+        console.log("Invocation count:", invocationCount);
+    }
+
+    function getInstanceCount() {
+        instanceCount++;
+        console.log("Instance count:", instanceCount);
+        return instanceCount;
+    }
+
+    trackedFunction.getInstanceCount = getInstanceCount;
+
+    return trackedFunction;
+}
+
+const instance1 = trackFunction();
+instance1();  
+instance1();  
+const instanceCount1 = instance1.getInstanceCount(); 
+console.log("Instance count:", instanceCount1); 
+
+
