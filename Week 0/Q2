@@ -1,0 +1,10 @@
+const array = [1, 2, 3, 4, 5];
+let index = 0;
+function printElement() {
+    console.log(array[index]);
+    index++;
+    if (index < array.length) {
+        setTimeout(printElement, 3000);  
+    }
+}
+printElement();
